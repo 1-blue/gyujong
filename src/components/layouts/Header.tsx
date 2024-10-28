@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 import { ROUTES } from "#/constants/routes";
 
@@ -37,12 +38,17 @@ const Header: React.FC = () => {
               href={route.path}
               target={route.target}
               className={cn(
-                "px-3 py-6",
-                pathname.includes(route.path) &&
-                  "border-b-2 border-primary text-primary",
+                "relative px-3 py-6",
+                pathname.includes(route.path) && "text-primary",
               )}
             >
-              {route.label}
+              <span>{route.label}</span>
+              {pathname.includes(route.path) && (
+                <motion.div
+                  layoutId="header-underline"
+                  className="absolute bottom-0 left-0 h-0.5 w-full bg-primary"
+                />
+              )}
             </Link>
           ))}
         </ul>
@@ -59,12 +65,17 @@ const Header: React.FC = () => {
             href={route.path}
             target={route.target}
             className={cn(
-              "px-2 py-4",
-              pathname.includes(route.path) &&
-                "border-b-2 border-primary text-primary",
+              "relative px-2 py-4",
+              pathname.includes(route.path) && "text-primary",
             )}
           >
-            {route.label}
+            <span>{route.label}</span>
+            {pathname.includes(route.path) && (
+              <motion.div
+                layoutId="sub-header-underline"
+                className="absolute bottom-0 left-0 h-0.5 w-full bg-primary"
+              />
+            )}
           </Link>
         ))}
       </ul>

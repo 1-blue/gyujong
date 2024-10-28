@@ -1,3 +1,10 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import {
   Button,
   Sheet,
@@ -7,10 +14,11 @@ import {
   SheetTrigger,
 } from "#/components/ui";
 import { ROUTES } from "#/constants/routes";
-import { HamburgerMenuIcon } from "@radix-ui/react-icons";
-import Link from "next/link";
+import { cn } from "#/lib/utils";
 
 const Aside: React.FC = () => {
+  const pathname = usePathname();
+
   return (
     <aside className="lg:hidden">
       <Sheet>
@@ -33,8 +41,22 @@ const Aside: React.FC = () => {
           <ul className="flex flex-1 flex-col justify-center text-sm">
             {ROUTES.map((route) => (
               <SheetClose asChild key={route.path}>
-                <Link href={route.path} target={route.target} className="p-4">
-                  {route.label}
+                <Link
+                  href={route.path}
+                  target={route.target}
+                  className={cn(
+                    "relative p-4",
+                    pathname.includes(route.path) &&
+                      "font-semibold text-primary",
+                  )}
+                >
+                  <span>{route.label}</span>
+                  {pathname.includes(route.path) && (
+                    <motion.div
+                      layoutId="route-ball"
+                      className="absolute bottom-[calc(50%-4px)] right-4 h-2 w-2 rounded-full bg-primary"
+                    />
+                  )}
                 </Link>
               </SheetClose>
             ))}
