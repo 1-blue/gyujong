@@ -41,7 +41,7 @@ const Page: NextPage = () => {
             <span className="font-extralight">Your ET. </span>
             <span className="font-bold">IRENE</span>
           </h1>
-          <h5 className="text-xl text-white lg:text-4xl">
+          <h5 className="text-xl text-white lg:text-3xl">
             <span className="font-extralight">IRENE 2025</span>
             <span className="font-bold"> 1등급 </span>
             <span className="font-extralight">ENGLISH</span>
@@ -105,7 +105,7 @@ const Page: NextPage = () => {
           variant="outline"
           className="mx-auto mt-4 block rounded-none shadow-none lg:mt-9"
         >
-          교재 더보기
+          <Link href="/materials">교재 더보기</Link>
         </Button>
       </section>
 
