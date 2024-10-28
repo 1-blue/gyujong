@@ -1,5 +1,10 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "prettier"
+  ],
   "rules": {
     "@typescript-eslint/no-empty-interface": "off"
   }

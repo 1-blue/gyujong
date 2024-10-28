@@ -1,6 +1,6 @@
 const Main: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <main className="max-w-screen-xl w-full mx-auto flex-1">{children}</main>
+    <main className="mx-auto w-full max-w-screen-xl flex-1">{children}</main>
   );
 };
 

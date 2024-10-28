@@ -3,9 +3,7 @@ import animate from "tailwindcss-animate";
 
 const config: Config = {
   darkMode: ["class"],
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}"
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
@@ -52,6 +50,10 @@ const config: Config = {
           "3": "hsl(var(--chart-3))",
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
+        },
+
+        sub: {
+          DEFAULT: "hsl(var(--sub))",
         },
       },
       borderRadius: {

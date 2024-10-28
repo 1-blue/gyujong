@@ -2,7 +2,9 @@ import localFont from "next/font/local";
 
 import "#/styles/globals.css";
 import { cn } from "#/lib/utils";
+import TanstackQueryProvider from "#/providers/TanstackQueryProvider";
 
+import { Toaster } from "#/components/ui";
 import Header from "#/components/layouts/Header";
 import Main from "#/components/layouts/Main";
 import Footer from "#/components/layouts/Footer";
@@ -29,9 +31,13 @@ export default function RootLayout({
           "flex min-h-screen flex-col",
         )}
       >
-        <Header />
-        <Main>{children}</Main>
-        <Footer />
+        <TanstackQueryProvider>
+          <Toaster position="top-right" />
+
+          <Header />
+          <Main>{children}</Main>
+          <Footer />
+        </TanstackQueryProvider>
       </body>
     </html>
   );

@@ -16,15 +16,22 @@ const routes = [
 
 const Header: React.FC = () => {
   return (
-    <header className="border-b border-zinc-200 py-4 sticky top-0 bg-background">
-      <article className="max-w-screen-xl mx-auto flex justify-center items-center">
+    <header className="sticky top-0 z-10 border-b border-zinc-200 bg-background px-8 py-4">
+      <article className="mx-auto flex max-w-screen-xl items-center justify-center">
         <section>
-          <figure>
-            <Image src="/images/logo.png" alt="logo" width={113} height={30} />
-          </figure>
+          <Link href="/">
+            <figure>
+              <Image
+                src="/images/logo.png"
+                alt="logo"
+                width={113}
+                height={30}
+              />
+            </figure>
+          </Link>
         </section>
 
-        <ul className="flex-1 flex gap-7 justify-center text-sm">
+        <ul className="flex flex-1 justify-center gap-7 text-sm">
           {routes.map((route) => (
             <Link key={route.path} href={route.path} target={route.target}>
               {route.label}
@@ -32,7 +39,7 @@ const Header: React.FC = () => {
           ))}
         </ul>
 
-        <section className="text-xs flex gap-4">
+        <section className="flex gap-4 text-xs">
           <Link href="/login">로그인</Link>
           <Link href="/signup">회원가입</Link>
         </section>
