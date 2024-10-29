@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "#/components/ui";
+import BookCarousel from "./components/BookCarousel";
 
 const items = [
   {
@@ -99,13 +100,18 @@ const Page: NextPage = () => {
           </span>
         </div>
 
-        <div className="mx-auto h-96 w-64 rounded-md bg-indigo-200" />
+        <BookCarousel />
 
         <Button
           variant="outline"
           className="mx-auto mt-4 block rounded-none shadow-none lg:mt-9"
         >
-          <Link href="/materials">교재 더보기</Link>
+          <Link
+            href="https://bthexaplus.shop.blogpay.co.kr/good/product_list?sCate=202623&sStep=categoryStep1"
+            target="_blank"
+          >
+            교재 더보기
+          </Link>
         </Button>
       </section>
 
